@@ -1,0 +1,57 @@
+            <!--Nav bar     -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="/">
+                        <img class="logo-img" src="{{ url_for('static', filename='assets/logo2.png')}}" alt="Related Engine" width="50%" height="auto" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon">☰</span>
+                    </button>
+                    <div class="d-flex align-items-center">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="nav nav-pills nav-justified">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="/" style="font-size: 12px; padding: 7.5px 0px;">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="https://relengine.com/docHub" target="_blank" rel="noopener noreferrer" style="font-size: 12px; padding: 7.5px 0px;">Doc Hub</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/JobHunt/" style="font-size: 12px; padding: 7.5px 0px;">Job Finder</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/pm/" style="font-size: 12px; padding: 7.5px 0px;">Search PubMed</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/gs/" style="font-size: 12px; padding: 7.5px 0px;">Search Scholar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/ai/" style="font-size: 12px; padding: 7.5px 0px;">Ai-Powered Search</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/contact" style="font-size: 12px; padding: 7.5px 0px;">Contact</a>
+                                </li>
+                                <ul class="navbar-nav nav-flex-icons">
+                                {% if user.is_authenticated %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/myprofile" style="color: black; font-size: 12px; padding: 7.5px 0px;"><i class="fas fa-user"></i> Profile</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/logout" style="color: black; font-size: 12px; padding: 7.5px 0px;">
+                                            <i class="fas fa-sign-out-alt"></i> Sign Out
+                                        </a>
+                                    </li>
+                                {% else %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/login" style="color: black; font-size: 12px; padding: 7.5px 0px;"><i class="fas fa-sign-in-alt"></i> Login</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/sign-up" style="color: black; font-size: 12px; padding: 7.5px 0px;"><i class="fas fa-user-plus"></i> Signup</a>
+                                    </li>
+                                {% endif %}
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>

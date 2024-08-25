@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login/Register Modal by Creative Tim</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <style>body{padding-top: 60px;}</style>
+    <link href="{{ url_for('static', filename='assets/css/bootstrap.css')}}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='assets/css/login-register.css')}}" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--<script src="{{ url_for('static', filename='assets/js/jquery-1.10.2.js')}}" type="text/javascript"></script>-->
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='assets/js/login-register.js')}}" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <a class="btn big-login" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">Log in</a>
+                <a class="btn big-register" data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">Register</a>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+        <div class="modal fade login" id="loginModal">
+            <div class="modal-dialog login animated">
+                <div class="modal-content">
+                    <!-- Content for the login form -->
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Login to Related Engine</h4>
+                    </div>
+                    <div class="modal-body" id="loginFormContainer">
+                        <div class="box">
+                            <div class="content">
+                                <div class="division">
+                                    <div class="line l"></div>
+                                    <div class="liner"></div>
+                                </div>
+                                <div class="error"></div>
+                                <div class="form loginBox">
+                                     <form method="POST" accept-charset="UTF-8">
+                                        <input id="email_login" class="form-control" type="text" placeholder="Email" name="email">
+                                        <input id="password_login" class="form-control" type="password" placeholder="Password" name="password">
+                                        <button type="button" class="btn btn-default btn-login" onclick="loginAndHidePopup({ email: $('#email_login').val(), password: $('#password_login').val() })">Login</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of login form content -->
+
+                    <!-- Content for the sign-up form -->
+                    <!--<div class="modal-body">-->
+                    <!--    <div class="box">-->
+                    <!--        <div class="content registerBox" style="display:none;">-->
+                    <!--            <div class="form">-->
+                    <!--                <form method="" accept-charset="UTF-8" html="{:multipart=>true}" data-remote="true">-->
+                    <!--                    <input id="firstName" class="form-control" type="text" placeholder="Name" name="firstName">-->
+                    <!--                    <input id="email_signup" class="form-control" type="text" placeholder="Email" name="email">-->
+                    <!--                    <input id="password1" class="form-control" type="password" placeholder="Password" name="password1">-->
+                    <!--                    <input id="password2" class="form-control" type="password" placeholder="Repeat Password" name="password2">-->
+                    <!--                    <label class="captcha-answer" for="captcha-answer"> Solve: {{ num1 }} + {{ num2 }} = </label>-->
+                    <!--                    <input id="{{ random_id }}" class="form-control" type="number" placeholder="" name="captcha-answer">-->
+                    <!--                    <input class="btn btn-default btn-register" type="button" value="Create account" name="commit" onclick="signupAjax();">-->
+                    <!--                </form>-->
+                    <!--            </div>-->
+                    <!--        </div>-->
+                    <!--    </div>-->
+                    <!--</div>-->
+                    <!-- End of sign-up form content -->
+
+                    <div class="modal-footer">
+                        <div class="forgot login-footer">
+                            <span>Looking to
+                                <a href="https://search.relengine.com/sign-up" target="_blank">create an account</a>
+                            ?</span>
+                        </div>
+                        <!--<div class="forgot register-footer" style="display:none">-->
+                        <!--    <span>Already have an account?</span>-->
+                        <!--    <a href="javascript: showLoginForm();">Login</a>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<script>
+  function loginAndHidePopup(formData) {
+    fetch("{{ url_for('auth.login_popup') }}", {
+      method: "POST",
+      body: JSON.stringify(formData)
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        // Handle successful login
+        alert('Logged in successfully!');
+        $('#loginModal').modal('hide'); // Close the popup
+        // You can add further logic to update the UI here
+      } else {
+        // Handle login failure
+        shakeModal('Login failed: ' + data.message);
+      }
+    })
+    .catch((error) => {
+      console.error('An error occurred:', error);
+      shakeModal('An error occurred while processing your request. Please try again.');
+    });
+  }
+</script>
+
+
+
+
+
+<script type="text/javascript">
+
+        // $(document).ready(function(){
+        //     openLoginModal();
+        // });
+        // Attach the loginAjax function to the form's submit event
+$('#loginForm').submit(function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    loginAjax();
+});
+
+    </script>
+
+</body>
+</html>

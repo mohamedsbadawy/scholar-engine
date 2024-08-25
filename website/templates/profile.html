@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="Related Engine">
+        <meta name="description" content="Explore the world of scholarly research articles effortlessly with our powerful tools. Simplify your research journey, discover related papers, and access interconnected research work. Download, organize, and visualize your findings with ease.">
+        <meta name="keywords" content="scholarly research, research articles, academic tools, research papers, data collection, search tools, research recommendations, data organization, network graph">
+        <title>Related Engine: User Profile</title>
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico')}}">
+              <!-- Custom Google font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <!-- Bootstrap icons-->
+
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet"/>
+        <!-- MDB -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" />
+        
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+        <style>
+            .card {
+                border: 1px solid #e6e6e6;
+                border-radius: 5px;
+            }
+
+            .edit-button,
+            .done-button {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                padding: 3px 6px;
+                /* Smaller padding for buttons */
+                border-radius: 3px;
+                cursor: pointer;
+            }
+
+            .edit-button:hover,
+            .done-button:hover {
+                background-color: #0056b3;
+            }
+
+            input {
+                width: 100%;
+                padding: 5px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                font-size: 16px;
+            }
+        </style>
+    </head>
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            
+ <!--Nav bar -->
+ 
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="/">
+                        <img class="logo-img" src="{{ url_for('static', filename='assets/logo2.png')}}" alt="Related Engine" width="80%" height="auto" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon">☰</span>
+                    </button>
+                    <div class="d-flex align-items-center">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="nav nav-pills nav-justified">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/" style="font-size: 12px; padding: 7.5px 0px;">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/lib/" style="font-size: 12px; padding: 7.5px 0px;">Doc Hub</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/categories/" style="font-size: 12px; padding: 7.5px 0px;">Sci-Journals</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/JobHunt/" style="font-size: 12px; padding: 7.5px 0px;">Job Finder</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/pm/" style="font-size: 12px; padding: 7.5px 0px;">Search PubMed</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/ai/" style="font-size: 12px; padding: 7.5px 0px;">Ai-Powered Search</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/contact" style="font-size: 12px; padding: 7.5px 0px;">Contact</a>
+                                </li>
+                                <ul class="navbar-nav nav-flex-icons">
+                                {% if User.is_authenticated %}
+                                
+                                     <li class="nav-item">
+                                        <a class="nav-link active" href="/myprofile" style="color: white; font-size: 12px; padding: 7.5px 0px;"><i class="fas fa-user"></i> Welcome, {{ User.first_name }}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/logout" style="color: black; font-size: 12px; padding: 7.5px 0px;">
+                                            <i class="fas fa-sign-out-alt"></i> Sign Out?
+                                        </a>
+                                    </li>
+                                {% else %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/login" style="color: black; font-size: 12px; padding: 7.5px 0px;"><i class="fas fa-sign-in-alt"></i> Login</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/sign-up" style="color: black; font-size: 12px; padding: 7.5px 0px;"><i class="fas fa-user-plus"></i> Signup</a>
+                                    </li>
+                                {% endif %}
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+                                
+                    
+            
+            <!-- Projects Section -->
+            <section class="py-5">
+                <div class="container px-5 mb-5">
+                    <div class="text-center mb-5">
+                        <!-- Flash messages --> {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, message in messages %} <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div> {% endfor %} {% endif %} {% endwith %}
+                        <!-- End of flash messages -->
+                    </div>
+                    <!-- Profile Card 1 -->
+                    <section style="background-color: #ffffff;">
+                        <!--<div class="container py-5">-->
+                            <div class="row">
+                                <div class="col">
+                                    <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+                                        <ol class="breadcrumb mb-0">
+                                            <li class="breadcrumb-item">
+                                                <a href="/">Related Engine</a>
+                                            </li>
+                                            <li class="breadcrumb-item active" aria-current="page">{{ User.first_name }}</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="card mb-4">
+                                            <div class="card-body text-center"> {% if User.photo %} <img src="{{ url_for('static', filename=User.photo)}}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;"> {% else %} <img src="{{ url_for('static', filename='assets/avatar.jpg')}}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;"> {% endif %} <h5 class="my-3">{{User.first_name}}</h5>
+                                                <form method="post" enctype="multipart/form-data" action="{{ url_for('auth.upload_avatar', user_id=User.id) }}">
+                                                    <input type="file" name="avatar" accept="image/*" size="10">
+                                                    <p class="text-muted mb-1">{{User.education}}</p>
+                                                    <p class="text-muted mb-4">{{User.f_of_Study}}</p>
+                                                    
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                                    <i class="far fa-clock fa-lg" style="color: #55acee;"></i>
+                                                    <p class="mb-0"> Last Bio </p>
+                                                    <p class="mb-0">{{ LastReview.bio }}</p>
+                                                </li>
+                                                    
+                                                    <button type="submit" class="btn btn-success done-button" style="font-size: .77rem;">Upload Avatar</button>
+                                                </form>
+                                                <div class="d-flex justify-content-center mb-2">
+                                                    <!--<button type="button" class="btn btn-primary">Follow</button>-->
+                                                    <!--<button type="button" class="btn btn-outline-primary ms-1">Message</button>-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Review Card -->
+                                        <div class="card mb-4 mb-lg-0">
+                                            <div class="card-body p-0">
+                                                <!--<li class="list-group-item d-flex justify-content-between align-items-center p-3">-->
+                                                <!--    <i class="far fa-clock fa-lg" style="color: #55acee;"></i>-->
+                                                <!--    <p class="mb-0">{{ LastReview.bio }}</p>-->
+                                                <!--    <p class="mb-0">{{ LastReview.date }}</p>-->
+                                                <!--</li>-->
+                                                <ul class="list-group list-group-flush rounded-3">
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                                        <i class="fas fa-globe fa-lg text-warning"></i>
+                                                        <a href="https://www.relengine.com/blog" target="_blank">Our blog</a>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                                        <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
+                                                        <a href="https://www.facebook.com/relatedengine" target="_blank">Our Facebook</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <!-- Submission Form -->
+    <div class="row mt-4 mx-auto">
+                                            <div class="col-lg-8 mx-auto">
+                                                <div class="card mb-4">
+                                                    <div class="card-body">
+                                                        <form method="POST" id="bio-form">
+                                                            <div class="mb-3">
+                                                                <label for="thoughts" class="form-label">Thoughts of the day:</label>
+                                                                <textarea class="form-control" id="thoughts" name="thoughts" rows="4" required></textarea>
+                                                            </div>
+                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-4">
+                                            <div class="card-body">
+                                                <form method="post" id="profile-form">
+                                                    <div class="row">
+                                                        <div class="col-sm-3">
+                                                            <p class="mb-0">Full Name</p>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" name="first_name" value="{{User.first_name}}" readonly required>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="row">
+                                                        <div class="col-sm-3">
+                                                            <p class="mb-0">Email</p>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <input type="email" name="email" value="{{User.email}}" readonly required>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="row">
+                                                        <div class="col-sm-3">
+                                                            <p class="mb-0">Degree</p>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" name="education" value="{{User.education}}" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="row">
+                                                        <div class="col-sm-3">
+                                                            <p class="mb-0">Field of Interest</p>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" name="f_of_Study" value="{{User.f_of_Study}}" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="row">
+                                                        <div class="col-sm-3">
+                                                            <p class="mb-0">Location</p>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" name="location" value="ONLINE" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="row">
+                                                        <div class="col-sm-9">
+                                                            <!-- New "Done" button -->
+                                                            <button type="submit" class="btn btn-success done-button">Done</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="card mb-4 mb-md-0">
+                                                <div class="card-body">
+                                                    <p class="mb-4">
+                                                        <span class="text-primary font-italic me-1">Reviews</span>
+                                                    </p>
+                                                    <p class="mb-1" style="font-size: .77rem;">Thank you for reviewing {{numofRev}} journals </p>
+                                                    <div class="progress rounded" style="height: 5px;">
+                                                        <div class="progress-bar" role="progressbar" style="width: {{numofRev}}%" aria-valuenow="{{numofRev}}" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                </div>
+            </section>
+        </main>
+        <!-- Footer -->
+        <footer class="bg-white py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto">
+                        <div class="small m-0">Copyright &copy; Related Engine 2023</div>
+                    </div>
+                    <div class="col-auto">
+                        <a class="small" href="#!">Privacy</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="#!">Terms</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script>
+            // JavaScript to make fields editable by double-click
+            const inputFields = document.querySelectorAll('input[readonly]');
+            inputFields.forEach((input) => {
+                input.addEventListener('dblclick', () => {
+                    input.removeAttribute('readonly');
+                });
+            });
+            // Add a click event listener to the "Done" button
+            const doneButton = document.querySelector('.done-button');
+            doneButton.addEventListener('click', () => {
+                // Loop through the input fields
+                inputFields.forEach((input) => {
+                    const initialValue = input.getAttribute('data-initial-value');
+                    if (input.value !== initialValue) {
+                        // Field has been edited; include it in the form submission
+                        input.removeAttribute('readonly');
+                    } else {
+                        // Field hasn't been edited; disable it and remove it from the form submission
+                        input.setAttribute('readonly', 'readonly');
+                        input.value = initialValue;
+                    }
+                });
+                // Submit the form
+                document.getElementById('profile-form').submit();
+            });
+        </script>
+        <!-- MDB -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
+        <!-- Bootstrap core JS-->
+        <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>-->
+        <!-- Core theme JS -->
+        <script src="{{ url_for('static', filename='js/scripts.js')}}"></script>
+        <!-- JavaScript to show/hide the loading overlay -->
+    </body>
+</html>

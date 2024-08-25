@@ -1,0 +1,14 @@
+# pip install python-dotenv
+# pip install requests
+Flask==2.3.3
+requests==2.30.0
+openpyxl==3.0.9
+xlsxwriter==3.0.1
+xlrd==2.0.1
+lxml==4.9.3
+PySocks==1.7.1
+Flask-SQLAlchemy
+flask-login
+beautifulsoup4==4.12.2
+bs4==0.0.1
+fake_useragent

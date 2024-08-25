@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EB735Z46CQ"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'G-EB735Z46CQ');
+        </script>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="author" content="Related Engine" />
+        <meta name="description" content="Related Engine: scientific research tool, scientific article finder, job finder, acadmic Journals - Your Academic Resource Hub" />
+        <meta name="keywords" content="related engine, scholarly search engines, scholarly research, research articles, academic tools, research papers, data collection, search tools, research recommendations, data organization, network graph" />
+        <title>Related Engine: scientific research tool, scientific article finder, job finder, acadmic Journals - Your Academic Resource Hub</title>
+        <meta charset="UTF-8">
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
+        <!-- Custom Google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <!-- Navigation Tap Icons -->
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet" />
+        <!-- MDB -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" />
+        <!-- End Navigation Tap Icons -->
+        <!-- Bootstrap icons -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Announcements window -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Core theme CSS (includes Bootstrap) -->
+        <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+        <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!--<script src="https://webkeyz.github.io/stand-with-palestine/dist/stand-with-palestine-widget.js"></script>-->
+
+        <!-- Custom styles for small devices -->
+        <style>
+            /* Style for small devices (screens with a maximum width of 768px) */
+            @media (max-width: 768px) {
+                .col-lg-4 {
+                    flex: 0 0 75.33%;
+                    max-width: 75.33%;
+                    margin: 0 auto;
+                }
+
+                .bg-image img {
+                    max-width: 100%;
+                    height: auto;
+                }
+
+                .badge.bg-light {
+                    padding: 0.2rem 0.5rem;
+                    margin: 0.1rem;
+                }
+            }
+
+            /* Center the buttons horizontally */
+            .button-container {
+                text-align: center;
+            }
+
+            /* Base button styles */
+            .button {
+                display: inline-block;
+                padding: 10px 20px;
+                margin: 10px;
+                background-color: #3498db;
+                color: #fff;
+                text-decoration: none;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                font-family: Arial, sans-serif;
+            }
+
+            /* Hover effect */
+            .button:hover {
+                background-color: #7aaccc !important;
+            }
+
+            .accordion-header {
+                font-weight: bold;
+                color: #fff;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                background-image: linear-gradient(45deg, #b3e0f2, #3385ff);
+                padding: 2px 4px;
+                border-radius: 3px;
+            }
+            /* Use a media hide accordion on small devices */
+            @media screen and (max-width: 768px) {
+                .News-slider{
+                    display: none;
+                }
+            }
+
+            /* Media query for small devices */
+            @media (max-width: 767px) and (orientation: portrait) {
+                .toast {
+                    position: fixed;
+                    top: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 75%;
+                    height: 50%;
+                    overflow: auto;
+                    /* Add overflow property to allow scrolling if content exceeds 50% height */
+                    display: none; /*hide it from being displayed*/
+
+                }
+            }
+
+            /* Media query for small devices in landscape mode */
+            @media (max-width: 767px) and (orientation: landscape) {
+                .toast {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 60%;
+                    max-height: 50vh;
+                    /* Set maximum height to 50% of the viewport height */
+                    overflow: auto;
+                    /* Add overflow property to allow scrolling if content exceeds 50% height */
+                    display: none; /*hide it from being displayed*/
+
+                }
+            }
+
+            /*Subscribe form*/
+                @font-face {
+                font-display: block;
+                font-family: Roboto;
+                src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff")
+              }
+            
+              @font-face {
+                font-display: fallback;
+                font-family: Roboto;
+                font-weight: 600;
+                src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff")
+              }
+            
+              @font-face {
+                font-display: fallback;
+                font-family: Roboto;
+                font-weight: 700;
+                src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff")
+              }
+            
+              #sib-container input:-ms-input-placeholder {
+                text-align: left;
+                font-family: "Helvetica", sans-serif;
+                color: #c0ccda;
+              }
+            
+              #sib-container input::placeholder {
+                text-align: left;
+                font-family: "Helvetica", sans-serif;
+                color: #c0ccda;
+              }
+            
+              #sib-container textarea::placeholder {
+                text-align: left;
+                font-family: "Helvetica", sans-serif;
+                color: #c0ccda;
+              }
+        </style>
+    </head>
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!--Nav bar     -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="/">
+                        <img class="logo-img" src="{{ url_for('static', filename='assets/logo2.png')}}" alt="Related Engine" width="90%" height="auto" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon">☰</span>
+                    </button>
+                    <div class="d-flex align-items-center">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="nav nav-pills nav-justified">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="/" style="font-size: 12px; padding: 7.5px 0px;">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/lib/" style="font-size: 12px; padding: 7.5px 0px;">Doc Hub</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/categories/" style="font-size: 12px; padding: 7.5px 0px;">Sci-Journals</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/JobHunt/" style="font-size: 12px; padding: 7.5px 0px;">Job Finder</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/pm/" style="font-size: 12px; padding: 7.5px 0px;">Search PubMed</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/ai/" style="font-size: 12px; padding: 7.5px 0px;">Ai-Powered Search</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/contact" style="font-size: 12px; padding: 7.5px 0px;">Contact</a>
+                                </li>
+<form id="search-form" class="custom-form" action="{{ url_for('jour.search_page') }}" method="post" style="font-size: 10px; padding: 7.5px 0px; margin-left: 20px;">
+    <div class="input-group">
+        <input name="search_input_" id="search_input" class="form-control rounded" type="text" placeholder="Search Impact factors, ISSNs, Q teir, ranking, title and more" size="70"/>
+        <!--<button type="button" class="btn btn-outline-primary" onclick="submitForm()" style="font-size: 8px; padding: 5px 10px;">Search</button>-->
+    </div>
+</form>
+                                <ul class="navbar-nav nav-flex-icons">
+                                {% if user.is_authenticated %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/myprofile" style="color: black; font-size: 12px; padding: 7.5px 0px;"><i class="fas fa-user"></i> Profile</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/logout" style="color: black; font-size: 12px; padding: 7.5px 0px;">
+                                            <i class="fas fa-sign-out-alt"></i> Sign Out
+                                        </a>
+                                    </li>
+                                {% else %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/login" style="color: black; font-size: 12px; padding: 7.5px 0px;"><i class="fas fa-sign-in-alt"></i> Login</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/sign-up" style="color: black; font-size: 12px; padding: 7.5px 0px;"><i class="fas fa-user-plus"></i> Signup</a>
+                                    </li>
+                                {% endif %}
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                 
+            </nav>
+                                                                        
+             
+            <!-- Header-->
+             
+                <!--Flash message-->
+            <div class="text-center mb-5" style="width = 70%; height= auto;"> {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %} {% if category ==
+    'error' %} <div class="alert alert-danger alter-dismissable fade show" role="alert">
+              {{ message }}
+              <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div> {% else %} <div class="alert alert-success alter-dismissable fade show" role="alert">
+              {{ message }}
+              <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div> {% endif %} {% endfor %} {% endif %} {% endwith %} 
+                <!--End of Flash-->
+            <!-- slider Code -->
+            <div class="News-slider">
+            <div class="container d-flex justify-content-center align-items-center vh-250px" style="margin-top: 15px; margin-bottom: 0px;">
+                <div class="p-3 m-0 border-0 bd-example m-0 border-0" style="width: 100%;">
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" style="padding: 0.5rem; margin: 0; font-size: 16px;"> Newly Published Articles </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div id="carouselExampleFade" class="carousel slide carousel-fade">
+                                        <div class="carousel-inner"> {% for image in images %} <div class="carousel-item {% if loop.first %}active{% endif %}">
+                                                <a href="{{ image.link }}" target="_blank">
+                                                    <img src="{{ image.src }}" class="d-block w-100" alt="{{ image.caption }}" style="width: auto; height: 250px; object-fit: cover; border-radius: 10px;">
+                                                </a>
+                                                <div class="carousel-caption">
+                                                    <div class="carousel-caption" style="background-color: rgba(0, 0, 0, 0.5); box-shadow: 0px 0px 10px black;">
+                                                        <h5 class="fs-6 fs-md-5" style="color: yellow; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">{{ image.title }}</h5>
+                                                        <p class="d-none d-md-block" style="color: white; font-size: 14px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">{{ image.des }}</p>
+                                                    </div>
+                                                </div>
+                                            </div> {% endfor %} </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev" control-id="ControlID-24">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next" control-id="ControlID-25">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!-- End slider Code -->
+            <!-- Subscription -->
+            <div class="toast show" style="position: fixed; top: 120px; left: 45%; z-index: 1050; max">
+                <div class="toast-header">
+                    <img src="https://relengine.com/notification.png" class="rounded mr-2" alt="User Avatar" style="width: auto; height: 15px;">
+                    <strong class="me-auto">&nbsp; Subscribe to our newsletter </strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                </div>
+                <div class="toast-body">
+                    <div class="sib-form" style="text-align: center; background-color: #ffffff;">
+                      <div id="sib-form-container" class="sib-form-container">
+                        <div id="error-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:&quot;Helvetica&quot;, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;max-width:540px;">
+                          <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                            <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+                              <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" />
+                            </svg>
+                            <span class="sib-form-message-panel__inner-text"> Your subscription could not be saved. Please try again. </span>
+                          </div>
+                        </div>
+                        <div></div>
+                        <div id="success-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:&quot;Helvetica&quot;, sans-serif; color:#085229; background-color:#e7faf0; border-radius:3px; border-color:#13ce66;max-width:540px;">
+                          <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                            <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+                              <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" />
+                            </svg>
+                            <span class="sib-form-message-panel__inner-text"> Thank you for subscribing. </span>
+                          </div>
+                        </div>
+                        <div></div>
+                        <div id="sib-container" class="sib-container--medium sib-container--horizontal" style="text-align:center; background-color:rgba(255,255,255,0.26); max-width:400px; border-radius:19px; border-width:1px; border-color:#C0CCD9; border-style:solid; direction:ltr">
+                          <form id="sib-form" method="POST" action="https://66818a53.sibforms.com/serve/MUIFAEy66XmcTBO5Kkz5kwaZvTR3edSqoINRBLwIjLrfkgatjB9LeNJ2KOCJdU-0aYjiauHNed3pHIvCLfiKJhGoUBId5VGAw5QeGNlNkfjpeG1wQJgfohJMyeLmiXKzCpm7-rhFDxxtEnANxe8bE_ZHkTPImbCDB63mMoBNR2GS_wJOOmy_jm29Rht8stkg8Cu4LWfEYv0Qs8uS" data-type="subscription">
+                            <div style="padding: 8px 0;">
+                              <div class="sib-form-block" style="font-size:23px; text-align:center; font-weight:700; font-family:&quot;Helvetica&quot;, sans-serif; color:#3C4858; background-color:transparent; text-align:center">
+                                <p>Related Engine Newsletter</p>
+                              </div>
+                            </div>
+                            <div style="padding: 8px 0;">
+                              <div class="sib-form-block" style="font-size:16px; text-align:center; font-family:&quot;Helvetica&quot;, sans-serif; color:#3C4858; background-color:transparent; text-align:center">
+                                <div class="sib-text-form-block">
+                                  <p>Subscribe to Related Engine newsletter and stay up-to date.</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div style="padding: 8px 0;">
+                              <div class="sib-input sib-form-block">
+                                <div class="form__entry entry_block">
+                                  <div class="form__label-row form__label-row--horizontal">
+                                    <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:&quot;Helvetica&quot;, sans-serif; color:#3c4858;" for="FIRSTNAME" data-required="*">Your name: </label>
+                                    <div class="entry__field">
+                                      <input class="input " maxlength="200" type="text" id="FIRSTNAME" name="FIRSTNAME" autocomplete="off" placeholder="Please Enter your name" data-required="true" required />
+                                    </div>
+                                  </div>
+                                  <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:&quot;Helvetica&quot;, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;"></label>
+                                </div>
+                              </div>
+                            </div>
+                            <div style="padding: 8px 0;">
+                              <div class="sib-input sib-form-block">
+                                <div class="form__entry entry_block">
+                                  <div class="form__label-row form__label-row--horizontal">
+                                    <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:&quot;Helvetica&quot;, sans-serif; color:#3c4858;" for="EMAIL" data-required="*">Your email :</label>
+                                    <div class="entry__field">
+                                      <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="yourname@example.com" data-required="true" required />
+                                    </div>
+                                  </div>
+                                  <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:&quot;Helvetica&quot;, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;"></label>
+                                </div>
+                              </div>
+                            </div>
+                            <div style="padding: 8px 0;">
+                              <div class="sib-form-block" style="text-align: center">
+                                <button class="sib-form-block__button sib-form-block__button-with-loader" style="font-size:14px; text-align:center; font-weight:700; font-family:&quot;Helvetica&quot;, sans-serif; color:#FFFFFF; background-color:#2874e6; border-radius:20px; border-width:0px;" form="sib-form" type="submit">
+                                  <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512">
+                                    <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
+                                  </svg> SUBSCRIBE </button>
+                              </div>
+                            </div>
+                            <input type="text" name="email_address_check" value="" class="input--hidden">
+                            <input type="hidden" name="locale" value="en">
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <!--End of subscription form-->
+                </div>
+            </div>
+            <!-- End of Subscription -->
+            <header class="py-5">
+                <div class="container-fluid" style="width: 90vw; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <div class="text-center">
+                        <div class="badge bg-gradient-primary-to-secondary text-white mb-4">
+                            <div class="text-uppercase">Customize &middot; Search &middot; Export</div>
+                        </div>
+                        <div class="fs-3 fw-light text-muted">Your Academic Resource Hub</div>
+                        <h1 class="display-3 fw-bolder mb-5">
+                            <span class="text-gradient d-inline">Search and export with ease</span>
+                        </h1>
+                        <!--<div class="d-grid gap-3 d-sm-flex justify-content-center">-->
+                        <!--    <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="https://relengine.com/blog">Blog</a>-->
+                        <!--    <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="/contact">Contact Us</a>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+                <!--Main Nav Tabs-->
+                <section style="background-color: #;">
+                    <div class="container py-5" style="margin-top: 0px;">
+                        <!--<h4 class="text-center mb-5">-->
+                        <!--<strong> We Got You Covered </strong>-->
+                        <!--</h4>-->
+                                  
+                
+                        <div class="row">
+                            <div class="col-lg-4 col-md-12 mb-4">
+                                <div class="bg-image hover-zoom ripple shadow-1-strong rounded">
+                                    <img src="{{ url_for('static', filename='mainpage/ai.webp')}}" class="w-100" />
+                                    <a href="/ai/">
+                                        <div class="mask" style="background-color: rgba(0, 0, 0, 0);">
+                                            <div class="d-flex justify-content-start align-items-start h-100">
+                                                <h5>
+                                                    <span class="badge bg-light pt-2 ms-3 mt-3 text-dark">Online</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="hover-overlay">
+                                            <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="bg-image hover-zoom ripple shadow-1-strong rounded">
+                                    <img src="{{ url_for('static', filename='mainpage/jobs.webp')}}" class="w-100" />
+                                    <a href="/JobHunt/">
+                                        <div class="mask" style="background-color: rgba(0, 0, 0, 0);">
+                                            <div class="d-flex justify-content-start align-items-start h-100">
+                                                <h5>
+                                                    <span class="badge bg-light pt-2 ms-3 mt-3 text-dark">Online</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="hover-overlay">
+                                            <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="bg-image hover-zoom ripple shadow-1-strong rounded">
+                                    <img src="{{ url_for('static', filename='mainpage/Scholar.webp')}}" class="w-100" />
+                                    <a href="/gs/">
+                                        <div class="mask" style="background-color: rgba(0, 0, 0, 0.3);">
+                                            <div class="d-flex justify-content-start align-items-start h-100">
+                                                <h5>
+                                                    <span class="badge bg-light pt-2 ms-3 mt-3 text-dark"> Offline </span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="hover-overlay">
+                                            <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-12 mb-4">
+                                <div class="bg-image hover-zoom ripple shadow-1-strong rounded ripple-surface">
+                                    <img src="{{ url_for('static', filename='mainpage/pubmed.webp')}}" class="w-100" />
+                                    <a href="/pm/">
+                                        <div class="mask" style="background-color: rgba(0, 0, 0, 0);">
+                                            <div class="d-flex justify-content-start align-items-start h-100">
+                                                <h5>
+                                                    <span class="badge bg-light pt-2 ms-3 mt-3 text-dark">Online</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="hover-overlay">
+                                            <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="bg-image hover-zoom ripple shadow-1-strong rounded">
+                                    <img src="{{ url_for('static', filename='mainpage/blog.webp')}}" class="w-100" />
+                                    <a href="https://relengine.com/blog/" target="_blank">
+                                        <div class="mask" style="background-color: rgba(0, 0, 0, 0);">
+                                            <div class="d-flex justify-content-start align-items-start h-100">
+                                                <h5>
+                                                    <span class="badge bg-light pt-2 ms-3 mt-3 text-dark">Online</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="hover-overlay">
+                                            <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="bg-image hover-zoom ripple shadow-1-strong rounded">
+                                    <img src="{{ url_for('static', filename='mainpage/soon-1.webp')}}" class="w-100" />
+                                    <a href="/categories">
+                                        <div class="mask" style="background-color: rgba(0, 0, 0, 0.0);">
+                                            <div class="d-flex justify-content-start align-items-start h-100">
+                                                <h5>
+                                                    <span class="badge bg-light pt-2 ms-3 mt-3 text-dark">Beta*</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="hover-overlay">
+                                            <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </header>
+            <!-- About Section-->
+            <section class="bg-light py-5">
+                <div class="container px-5">
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-xxl-8">
+                            <div class="text-center my-5">
+                                <h2 class="display-5 fw-bolder">
+                                    <span class="text-gradient d-inline">About Related Engine</span>
+                                </h2>
+                                <p class="text-muted" style="text-align: justify; font-size: 18px;"> Related Engine presents to you a variety of scientific research tool and scientific article finder to explore the extensive world of scholarly research articles. Whether you're a seasoned academic or a student embarking on a research journey, our tools simplify the process of finding related research papers, pull out article's citations or references, recommend articles for keywords, and more. Just be ready to handle the extent of data you could collect using our tools. We offer different ways to do your search, be it paper title, keywords, DOI, PubMed ID, or PubMed links. We'll help you discover interconnected research work in your field. Plus, with the added features of downloading your search results as a table with direct download and access links, references, and author's details, you can easily organize and reference your findings for future reference. We also offer a feature to view the results as a network graph for visual representations of the connections between search results. </p>
+                                <!--<div class="button-container">-->
+                                <!--    <a href="https://search.relengine.com/pm" class="button">Search PubMed</a>-->
+                                <!--    <a href="https://search.relengine.com/ai" class="button">Use Our Advanced Search Engine</a>-->
+                                <!--    <a href="https://search.relengine.com/gs" class="button">Search Scholar</a>-->
+                                <!--</div>-->
+                                <div class="d-flex justify-content-center fs-2 gap-4">
+                                    <a class="text-gradient" href="https://www.linkedin.com/in/muhammadbadawi/" target="_blank">
+                                        <i class="bi bi-linkedin"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Include the visitor counter -->
+        <div class="counter-container" style="text-align: center; margin-top: 20px; margin-bottom: 0px;">
+            <iframe src="https://relengine.com/Counter/visitor_counter.php" frameborder="0" width="100%" height="100%"></iframe>
+        </div>
+        <!-- Footer-->
+        <footer class="bg-white py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto">
+                        <div class="small m-0">Copyright &copy; Related Engine 2023</div>
+                    </div>
+                    <div class="col-auto">
+                        <a class="small" href="#!">Privacy</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="#!">Terms</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+            
+        </footer>
+        <script>
+      function submitForm(formId) {
+        document.getElementById(formId).submit();
+      }
+    </script>
+        
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- Bootstrap core JS-->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <!-- Include the JavaScript for the slideshow functionality from an external file -->
+        <script src="{{ url_for('static', filename='js/scripts.js')}}"></script>
+        <!-- JavaScript for slideshow functionality -->
+        <script>
+            // Initialize the carousel
+            const myCarousel = new bootstrap.Carousel(document.querySelector('#carouselExampleFade'));
+            // Set the interval for automatic sliding
+            setInterval(function() {
+                myCarousel.next();
+            }, 6000); // Adjust the interval duration (in milliseconds) as needed
+        </script>
+        <!--Microsoft ads-->
+        <script>
+            window.msAdsQueue = window.msAdsQueue || [];
+        </script>
+        
+        <!--Subscription-->
+        <script>
+              window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+              window.LOCALE = 'en';
+              window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+              window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+              window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+              window.translation = {
+                common: {
+                  selectedList: '{quantity} list selected',
+                  selectedLists: '{quantity} lists selected'
+                }
+              };
+              var AUTOHIDE = Boolean(0);
+        </script>
+        <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+        
+        <script async src="https://adsdk.microsoft.com/pubcenter/sdk.js?siteId=363270&publisherId=252986934" crossorigin="anonymous"></script>
+        <!--End of M Ads-->
+    </body>
+</html>

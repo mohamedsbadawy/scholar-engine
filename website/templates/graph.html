@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+                <!-- Google tag (gtag.js) -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-EB735Z46CQ"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+            
+              gtag('config', 'G-EB735Z46CQ');
+            </script>
+        <!-- Google tag (gtag.js) -->    
+        
+        
+        <style>
+                   /* Style for the icon container */
+            /* Base styles for larger screens */
+            .icon-container {
+                display: flex;
+                justify-content: space-evenly;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .material-icon {
+                font-size: 50px;
+                margin-right: 20px;
+                cursor: pointer;
+                transition: color 0.3s, transform 0.3s;
+                /* Add transition for color and transform properties */
+                color: rgb(0, 0, 120);
+                /* Default color */
+            }
+
+            /* Hover animation */
+            .material-icon:hover {
+                color: green;
+                /* Change color on hover (optional) */
+                transform: scale(1.2);
+                /* Scale up on hover */
+            }
+
+            /* Adjust styles for small screens */
+            @media screen and (max-width: 768px) {
+                .material-icon {
+                    font-size: 50px;
+                    /* Decrease font size for small screens */
+                    margin-right: 10px;
+                    /* Decrease margin for small screens */
+                }
+            }
+
+            /* Hover effect to change color */
+            .material-icon:hover {
+                color: red;
+                /* Change the color on hover (replace "red" with your desired color) */
+            }
+
+            /* Style for the icon container ends */
+        
+        
+        
+        
+            .text-text {
+                font-size: 12px;
+                fill: black;  /* Change text color to black */
+            }
+             body {
+                    background-color: #fff; /* Set background color to white */
+                }
+           
+
+        /* Custom styling for the Semantic Scholar list */
+        #waystosearch-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .waystosearch-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: nowrap; /* Prevent items from wrapping to the next line */
+        }
+
+        .waystosearch {
+            display: flex;
+            align-items: center;
+            margin-right: 20px; /* Add spacing between items */
+        }
+
+        /* Style for the Semantic Scholar icon */
+        .waystosearch .icon {
+            width: 40px;
+            height: 40px;
+        }
+            
+            
+            
+        </style>
+        
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="author" content="Related Engine" />
+        <meta name="description" content="Explore the world of scholarly research articles effortlessly with our powerful tools. Simplify your research journey, discover related papers, and access interconnected research work. Download, organize, and visualize your findings with ease.">
+        <meta name="keywords" content="scholarly research, research articles, academic tools, research papers, data collection, search tools, research recommendations, data organization, network graph">
+        <title>Related Engine: Visualize the data - Your Academic Resource Hub</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <meta charset="UTF-8">
+         <!-- Favicon-->       
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico')}}" />
+        <!-- Custom Google font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <!-- Navigation Tap Icons -->
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet" />
+        <!-- MDB -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" />
+        <!-- End Navigation Tap Icons -->
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+    </head>
+    <body>
+        <main class="flex-shrink-0">
+       <!--Nav bar     -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="/">
+                        <img class="logo-img" src="{{ url_for('static', filename='assets/logo2.png')}}" alt="Related Engine" width="80%" height="auto" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon">☰</span>
+                    </button>
+                    <div class="d-flex align-items-center">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="nav nav-pills nav-justified">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/" style="font-size: 12px; padding: 7.5px 0px;">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/lib/" style="font-size: 12px; padding: 7.5px 0px;">Doc Hub</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/categories/" style="font-size: 12px; padding: 7.5px 0px;">Sci-Journals</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/JobHunt/" style="font-size: 12px; padding: 7.5px 0px;">Job Finder</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/pm/" style="font-size: 12px; padding: 7.5px 0px;">Search PubMed</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/ai/" style="font-size: 12px; padding: 7.5px 0px;">Ai-Powered Search</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/contact" style="font-size: 12px; padding: 7.5px 0px;">Contact</a>
+                                </li>
+<form id="search-form" class="custom-form" action="{{ url_for('jour.search_page') }}" method="post" style="font-size: 10px; padding: 7.5px 0px; margin-left: 20px;">
+    <div class="input-group">
+        <input name="search_input_" id="search_input" class="form-control rounded" type="text" placeholder="Search Impact factors, ISSNs, Q teir, ranking, title and more" size="70"/>
+        <!--<button type="button" class="btn btn-outline-primary" onclick="submitForm()" style="font-size: 8px; padding: 5px 10px;">Search</button>-->
+    </div>
+</form>
+                                <ul class="navbar-nav nav-flex-icons">
+                                {% if user.is_authenticated %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/myprofile" style="color: black; font-size: 12px; padding: 7.5px 0px;"><i class="fas fa-user"></i> Profile</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/logout" style="color: black; font-size: 12px; padding: 7.5px 0px;">
+                                            <i class="fas fa-sign-out-alt"></i> Sign Out
+                                        </a>
+                                    </li>
+                                {% else %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/login" style="color: black; font-size: 12px; padding: 7.5px 0px;"><i class="fas fa-sign-in-alt"></i> Login</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/sign-up" style="color: black; font-size: 12px; padding: 7.5px 0px;"><i class="fas fa-user-plus"></i> Signup</a>
+                                    </li>
+                                {% endif %}
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                 
+            </nav>
+                        <!-- title Section-->
+
+                        <div class="text-center mb-5">
+                <h1 class="display-5 fw-bolder mb-0" style="font-size: 24px; margin-top: 20px;"><span class="text-gradient d-inline">Interactive results for {{search_keyword}}</span></h1>
+                         </div>
+
+            <!-- Projects Section-->
+                                        <!-- Table results section -->
+                                            <div class="table table-striped" id="Search-Results" style="margin-bottom: 10px;margin-top: 10px;">
+                                           
+                                                    {{ table | safe }}
+                                                    <!-- Add table rows here -->
+                                            
+                                            <div class="goback" style="text-align: center;">
+                                                <a href="/">Go back</a>
+                                            </div>                                        
+                                            </div>
+                                        
+                                        <div style="height: 25px;"></div>
+                                        <!-- Download buttons using POST method -->
+                                        <div class="container">
+                                            <div class="icon-container">
+                                                <!-- Icon 2 with a link and alt text -->
+                                                <a href="#" title="Download as Excel" onclick="submitForm('downloadForm');">
+                                                    <i class="large material-icons material-icon" style="font-size: 50px;">cloud_download</i>
+                                                </a>
+                                        
+                                                <!-- Icon 3 with a link and alt text -->
+                                                <a href="#" title="Add to a library" onclick="submitForm('saveResultsForm');">
+                                                    <i class="large material-icons material-icon" style="font-size: 50px;">library_add</i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Hidden forms with appropriate actions and methods -->
+                                        <form id="downloadForm" action="../download_excel" method="post" target="_blank" style="display: none;"></form>
+                                        <form id="saveResultsForm" action="../saveResults" method="post" target="_blank" style="display: none;"></form>
+                                        <div style="height: 25px;"></div>
+                                            <!-- Semantic Scholar list -->
+                                    <div style="height: 25px;"></div>
+                                    <div id="waystosearch-section">
+                                        <ul class="waystosearch-list">
+                                            <li class="waystosearch">
+                                                <img class="icon" src="{{ url_for('static', filename='assets/doi.png')}}" alt="DOI"> 
+                                                <p>DOI</p>
+                                            </li>
+                                            <li class="waystosearch">
+                                                <img class="icon" src="{{ url_for('static', filename='assets/x.png')}}" alt="arXiv"> 
+                                                <p>arXiv</p>
+                                            </li>
+                                            <li class="waystosearch">
+                                                <img class="icon" src="{{ url_for('static', filename='assets/papertitle.png')}}" alt="papertitle"> 
+                                                <p>Paper Title</p>
+                                            </li>
+                                            <li class="waystosearch">
+                                                <img class="icon" src="{{ url_for('static', filename='assets/pubmed.png')}}" alt="PubMed"> 
+                                                <p>PubMed</p>
+                                            </li>
+                                            <li class="waystosearch">
+                                                <img class="icon" src="{{ url_for('static', filename='assets/sp.png')}}" alt="Semantic Scholar Icon"> 
+                                                <p>Semantic Scholar</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- End Semantic Scholar list -->
+         <!-- Include the visitor counter -->
+        <div class="counter-container" style="text-align: center; margin-top: 20px; margin-bottom: 0px;">
+            <iframe src="https://relengine.com/Counter/visitor_counter.php" frameborder="0" width="100%" height="100%"></iframe>
+            </div>
+ 
+            <!-- Call to action section-->
+            <section class="py-5 bg-gradient-primary-to-secondary text-white">
+                <div class="container px-5 my-5">
+                    <div class="text-center">
+                        <h2 class="display-4 fw-bolder mb-4">Open for recommendations </h2>
+                        <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="/contact">Contact us</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Footer-->
+        <footer class="bg-white py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0">Copyright &copy; Related Engine 2023</div></div>
+                    <div class="col-auto">
+                        <a class="small" href="#!">Privacy</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="#!">Terms</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Icon Submission-->
+        <script>
+
+
+            function submitForm(formId) {
+                document.getElementById(formId).submit();
+            }
+        </script>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{{ url_for('static', filename='js/scripts.js')}}"></script>
+        <script>
+            // Add node click interaction
+            plot.on("plotly_click", function(eventdata) {
+                if (eventdata.points.length > 0) {
+                    var point = eventdata.points[0];
+                    if (point.customdata) {
+                        window.open(point.customdata, "_blank");
+                    }
+                }
+            });
+            </script>
+        <script>
+
+        // Wait for the page to load
+        window.addEventListener("load", function () {
+            // Set a delay (in milliseconds) before scrolling to the target element
+            const delay = 1; // 3 seconds (adjust as needed)
+
+            setTimeout(function () {
+                // Get a reference to the target element by its ID
+                const targetElement = document.getElementById("Search-Results");
+
+                // Check if the target element exists
+                if (targetElement) {
+                    // Use the `scrollIntoView` method to scroll to the target element
+                    targetElement.scrollIntoView({ behavior: "smooth" });
+                }
+            }, delay);
+        });
+
+</script>
+    </body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EB735Z46CQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-EB735Z46CQ');
+    </script>
+    <!-- Google tag (gtag.js) -->
+
+    <style>
+        .radio-label {
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .radio-label input {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .word-per-line {
+            white-space: nowrap;
+        }
+
+      
+
+        
+
+    </style>
+
+    <meta charset="utf-8" />
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="author" content="Related Engine" />
+    <meta name="description" content="Explore TruthFinder, your reliable source for fact-checking and debunking misinformation. We are dedicated to scrutinizing claims, verifying information, and presenting the truth. Stay informed, make educated decisions, and promote a culture of accuracy">
+    <meta name="keywords" content="Related Engine, Fact-checking, Truth verification, Myth debunking, Information accuracy, Credible sources, Reliable information, Hoax detection, Verifiable claims, Evidence-based reporting, Unbiased analysis, Factual scrutiny, Data validation, Transparent reporting, Accuracy assurance, Critical thinking, Disinformation prevention, Misinformation detection, Fact-based journalism, Trustworthy news, Information integrity">
+    <title>Related Engine: Unveiling Facts, Debunking Myths, and Ensuring Accuracy</title>
+    <meta charset="UTF-8">
+    <!-- Favicon-->    
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico')}}" />
+    <!-- Custom Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Navigation Tap Icons -->
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet" />
+        <!-- MDB -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" />
+        <!-- End Navigation Tap Icons -->
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+</head>
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+    <!--Nav bar     -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="/">
+                        <img class="logo-img" src="{{ url_for('static', filename='assets/logo2.png')}}" alt="Related Engine" width="80%" height="auto" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon">☰</span>
+                    </button>
+                    <div class="d-flex align-items-center">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="nav nav-pills nav-justified">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/" style="font-size: 12px; padding: 7.5px 0px;">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/lib/" style="font-size: 12px; padding: 7.5px 0px;">Doc Hub</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/categories/" style="font-size: 12px; padding: 7.5px 0px;">Sci-Journals</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/JobHunt/" style="font-size: 12px; padding: 7.5px 0px;">Job Finder</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/pm/" style="font-size: 12px; padding: 7.5px 0px;">Search PubMed</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/ai/" style="font-size: 12px; padding: 7.5px 0px;">Ai-Powered Search</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/contact" style="font-size: 12px; padding: 7.5px 0px;">Contact</a>
+                                </li>
+<form id="search-form" class="custom-form" action="{{ url_for('jour.search_page') }}" method="post" style="font-size: 10px; padding: 7.5px 0px; margin-left: 20px;">
+    <div class="input-group">
+        <input name="search_input_" id="search_input" class="form-control rounded" type="text" placeholder="Search Impact factors, ISSNs, Q teir, ranking, title and more" size="70"/>
+        <!--<button type="button" class="btn btn-outline-primary" onclick="submitForm()" style="font-size: 8px; padding: 5px 10px;">Search</button>-->
+    </div>
+</form>
+                                <ul class="navbar-nav nav-flex-icons">
+                                {% if user.is_authenticated %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/myprofile" style="color: black; font-size: 12px; padding: 7.5px 0px;"><i class="fas fa-user"></i> Profile</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/logout" style="color: black; font-size: 12px; padding: 7.5px 0px;">
+                                            <i class="fas fa-sign-out-alt"></i> Sign Out
+                                        </a>
+                                    </li>
+                                {% else %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/login" style="color: black; font-size: 12px; padding: 7.5px 0px;"><i class="fas fa-sign-in-alt"></i> Login</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/sign-up" style="color: black; font-size: 12px; padding: 7.5px 0px;"><i class="fas fa-user-plus"></i> Signup</a>
+                                    </li>
+                                {% endif %}
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                 
+            </nav>
+          <!-- Projects Section -->
+    <section class="py-5">
+        <div class="container px-5 mb-5">
+            <!--Flash message-->
+            <div class="text-center mb-5"> {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %} {% if category ==
+    'error' %} <div class="alert alert-danger alter-dismissable fade show" role="alert">
+              {{ message }}
+              <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div> {% else %} <div class="alert alert-success alter-dismissable fade show" role="alert">
+              {{ message }}
+              <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div> {% endif %} {% endfor %} {% endif %} {% endwith %} <div class="row gx-5 justify-content-center">
+                <!--End of Flash-->
+            <div class="text-center mb-5">
+                <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Fact check a statement, news article, scientific claims</span></h1>
+            </div>
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-11 col-xl-9 col-xxl-8">
+                    <!-- Project Card 1 -->
+                    <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                        <div class="card-body p-0">
+                            <div class="p-5">
+                                <!-- Search form section -->
+                                <div class="center-form" id="search-form" style="margin: 0 auto; margin-top: 15px; max-width: 600px;">
+                                    <h1 class="mb-4 text-center">Fact check a statement, news article, scientific claims</h1>
+                                    <form method="POST" action="/factcheck/result" class="custom-form">
+                                        <div class="mb-3">
+                                            <label for="search-job" class="form-label text-center">fact check:</label>
+                                            <input type="text" class="form-control" id="search-job" name="search_job" size="55" required placeholder="  Type a statement, news article, scientific claims
+                                            ">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <div class="row">
+                
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <div class="col-md-6 offset-md-3 text-center">
+                                                <!-- <h5 class="mb-2">Remote only?</h5> -->
+                                                <div class="form-check d-flex justify-content-center align-items-center">
+                                                    <input type="checkbox" class="form-check-input" id="remote" name="remote">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        
+
+                                        <div class="mb-3 text-center">
+                                            <button type="submit" class="btn btn-primary">    Find The Truth    </button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- Search form section -->
+                                  <div style="height: 10px;"></div>
+
+                                    <!-- Job Board -->
+
+                                <!-- End Job Board -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Include the visitor counter -->
+        <div class="counter-container" style="text-align: center; margin-top: 20px; margin-bottom: 0px;">
+            <iframe src="https://relengine.com/Counter/visitor_counter.php" frameborder="0" width="100%" height="100%"></iframe>
+        </div>
+
+        <!-- Call to action section-->
+        <section class="py-5 bg-gradient-primary-to-secondary text-white">
+            <div class="container px-5 my-5">
+                <div class="text-center">
+                    <h2 class="display-4 fw-bolder mb-4">Open for recommendations </h2>
+                    <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="/contact">Contact us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer-->
+    <footer class="bg-white py-4 mt-auto">
+        <div class="container px-5">
+            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="col-auto"><div class="small m-0">Copyright &copy; Related Engine 2023</div></div>
+                <div class="col-auto">
+                    <a class="small" href="#!">Privacy</a>
+                    <span class="mx-1">&middot;</span>
+                    <a class="small" href="#!">Terms</a>
+                    <span class="mx-1">&middot;</span>
+                    <a class="small" href="#!">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="{{ url_for('static', filename='js/scripts.js')}}"></script>
+    <!-- JavaScript to show/hide the loading overlay -->
+    <!--Job board-->
+    <script>
+    function changeTextColor() {
+        const colors = ["red", "blue", "green", "orange"]; // Define an array of colors to cycle through.
+        const textElement = document.getElementById("colorChangingText");
+        let currentColorIndex = 0;
+
+        setInterval(() => {
+            textElement.style.color = colors[currentColorIndex];
+            currentColorIndex = (currentColorIndex + 1) % colors.length; // Cycle through the colors.
+        }, 1000); // Change color every 1000 milliseconds (1 second).
+    }
+
+    // Call the function to start changing text color.
+    changeTextColor();
+</script>
+</body>
+</html>
