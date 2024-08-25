@@ -23,7 +23,7 @@ To install and run the Research Engine on your local machine, follow these steps
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/mohamedsbadawy/research-engine.git
+    git clone https://github.com/mohamedsbadawy/scholar-engine.git
     cd research-engine
     ```
 
