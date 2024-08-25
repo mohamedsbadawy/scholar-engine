@@ -93,6 +93,7 @@ To install and run the Research Engine on your local machine, follow these steps
     By default, the application will be accessible at `http://127.0.0.1:5000`.
 
 9. **Access the Application**:
+    
     Open your web browser and navigate to `http://127.0.0.1:5000` to start using the Research Engine.
 
 ## Usage
@@ -105,7 +106,9 @@ To install and run the Research Engine on your local machine, follow these steps
 6. **Review Journals**: Contribute by reviewing articles or journals, enhancing the collaborative academic environment.
 7. **Job hub**: Contribute by reviewing articles or journals, enhancing the collaborative academic environment.
 7. **SQL integration**: Contribute by reviewing articles or journals, enhancing the collaborative academic environment.
+   
 ## Reused codes
+
 Some of the code in the project was open source and was repurposed to the current use case. 
 
 ## Contributing
